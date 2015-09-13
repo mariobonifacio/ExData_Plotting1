@@ -19,8 +19,16 @@ png(filename = "ExData_Plotting1/plot3.png", width = 480, height = 480, units = 
 
 
 par(mfrow = c(2,2))
+
+with(mydata,{
+
+hist(mydata$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency")
+
+plot(x = mydata$datetime, y = mydata$Global_active_power, type = "l",ylab = "Global Active Power (kilowatts)",xlab="")
+
 plot(x = c(mydata$datetime,mydata$datetime,mydata$datetime), y = c(mydata$Sub_metering_1,mydata$Sub_metering_2,mydata$Sub_metering_3), type = "l",ylab = "Energy sub metering",xlab="", col=c("black","red","blue"))
 legend("topright",col=c("black","red","blue"),legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), pch="-")
 
+})
 
 }
